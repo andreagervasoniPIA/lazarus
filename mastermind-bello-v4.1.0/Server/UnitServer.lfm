@@ -1,0 +1,285 @@
+object FormServer: TFormServer
+  Left = 200
+  Height = 640
+  Top = 20
+  Width = 800
+  AutoScroll = True
+  BorderStyle = bsSingle
+  Caption = 'Mastermind bello - il SERVER del prof'
+  ClientHeight = 640
+  ClientWidth = 800
+  LCLVersion = '4.2.0.0'
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  object LblPorta: TLabel
+    Left = 10
+    Height = 17
+    Top = 4
+    Width = 100
+    Caption = 'Porta'
+    ParentColor = False
+  end
+  object EdPorta: TEdit
+    Left = 10
+    Height = 30
+    Top = 22
+    Width = 84
+    Font.Height = -17
+    ParentFont = False
+    TabOrder = 0
+    Text = '5050'
+    OnChange = EdPortaChange
+  end
+  object BtnAvvia: TButton
+    Left = 104
+    Height = 30
+    Top = 22
+    Width = 286
+    Caption = 'Avvia server'
+    Font.Height = -15
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 1
+    OnClick = BtnAvviaClick
+  end
+  object LblStato: TLabel
+    Left = 10
+    Height = 20
+    Top = 58
+    Width = 380
+    AutoSize = False
+    Caption = 'Server SPENTO'
+    Font.Height = -15
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object LblIp: TLabel
+    Left = 10
+    Height = 17
+    Top = 82
+    Width = 380
+    Caption = 'IP di questo PC: '
+    ParentColor = False
+  end
+  object LblIndirizzo: TLabel
+    Left = 10
+    Height = 17
+    Top = 104
+    Width = 380
+    Caption = 'Di ai ragazzi di scrivere (IP e porta):'
+    ParentColor = False
+  end
+  object EdIndirizzo: TEdit
+    Left = 10
+    Height = 34
+    Top = 122
+    Width = 380
+    Font.Height = -22
+    Font.Style = [fsBold]
+    ParentFont = False
+    ReadOnly = True
+    TabOrder = 2
+  end
+  object BtnVia: TButton
+    Left = 10
+    Height = 42
+    Top = 164
+    Width = 100
+    Caption = 'Via!'
+    Enabled = False
+    Font.Height = -20
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 3
+    OnClick = BtnViaClick
+  end
+  object BtnStop: TButton
+    Left = 118
+    Height = 42
+    Top = 164
+    Width = 100
+    Caption = 'Stop'
+    Enabled = False
+    Font.Height = -20
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 4
+    OnClick = BtnStopClick
+  end
+  object BtnNuova: TButton
+    Left = 226
+    Height = 42
+    Top = 164
+    Width = 164
+    Caption = 'Nuova combinazione'
+    Enabled = False
+    TabOrder = 5
+    OnClick = BtnNuovaClick
+  end
+  object LblGara: TLabel
+    Left = 10
+    Height = 20
+    Top = 214
+    Width = 380
+    AutoSize = False
+    Caption = 'GARA a piu'' codici (la classifica e'' a destra)'
+    Font.Height = -15
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object LblCodici: TLabel
+    Left = 10
+    Height = 17
+    Top = 242
+    Width = 50
+    Caption = 'Codici'
+    ParentColor = False
+  end
+  object EdCodici: TEdit
+    Left = 62
+    Height = 28
+    Top = 236
+    Width = 46
+    Font.Height = -16
+    ParentFont = False
+    TabOrder = 9
+    Text = '5'
+  end
+  object LblSecondi: TLabel
+    Left = 124
+    Height = 17
+    Top = 242
+    Width = 130
+    Caption = 'Secondi per codice'
+    ParentColor = False
+  end
+  object EdSecondi: TEdit
+    Left = 258
+    Height = 28
+    Top = 236
+    Width = 60
+    Font.Height = -16
+    ParentFont = False
+    TabOrder = 10
+    Text = '180'
+  end
+  object BtnInizia: TButton
+    Left = 10
+    Height = 40
+    Top = 270
+    Width = 150
+    Caption = 'Inizia gara'
+    Enabled = False
+    Font.Height = -17
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 11
+    OnClick = BtnIniziaClick
+  end
+  object BtnProssimo: TButton
+    Left = 168
+    Height = 40
+    Top = 270
+    Width = 126
+    Caption = 'Prossimo codice'
+    Enabled = False
+    TabOrder = 12
+    OnClick = BtnProssimoClick
+  end
+  object BtnFine: TButton
+    Left = 302
+    Height = 40
+    Top = 270
+    Width = 88
+    Caption = 'Fine gara'
+    Enabled = False
+    TabOrder = 13
+    OnClick = BtnFineClick
+  end
+  object LblRound: TLabel
+    Left = 10
+    Height = 22
+    Top = 314
+    Width = 380
+    AutoSize = False
+    Caption = 'Nessuna gara in corso'
+    Font.Height = -16
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object PbSegreto: TPaintBox
+    Left = 10
+    Height = 64
+    Top = 340
+    Width = 380
+    OnClick = BtnMostraClick
+    OnPaint = PbSegretoPaint
+  end
+  object BtnMostra: TButton
+    Left = 10
+    Height = 28
+    Top = 410
+    Width = 380
+    Caption = 'Mostra il codice'
+    Enabled = False
+    TabOrder = 6
+    OnClick = BtnMostraClick
+  end
+  object LblGiocatori: TLabel
+    Left = 10
+    Height = 22
+    Top = 444
+    Width = 380
+    AutoSize = False
+    Caption = 'Collegati: 0'
+    Font.Height = -15
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object LblClassifica: TLabel
+    Left = 410
+    Height = 17
+    Top = 4
+    Width = 380
+    Caption = 'Classifica'
+    ParentColor = False
+  end
+  object Griglia: TStringGrid
+    Left = 410
+    Height = 604
+    Top = 24
+    Width = 380
+    ColCount = 6
+    FixedCols = 0
+    RowCount = 1
+    TabOrder = 7
+  end
+  object LblRegistro: TLabel
+    Left = 10
+    Height = 17
+    Top = 472
+    Width = 200
+    Caption = 'Registro'
+    ParentColor = False
+  end
+  object MemoRegistro: TMemo
+    Left = 10
+    Height = 142
+    Top = 490
+    Width = 380
+    ReadOnly = True
+    ScrollBars = ssAutoVertical
+    TabOrder = 8
+  end
+  object Timer1: TTimer
+    Enabled = False
+    Interval = 50
+    OnTimer = Timer1Timer
+    Left = 340
+    Top = 60
+  end
+end
