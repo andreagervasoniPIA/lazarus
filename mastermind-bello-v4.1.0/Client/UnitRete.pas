@@ -1,38 +1,4 @@
 unit UnitRete;
-{ MASTERMIND BELLO v4.1 - la UNIT DELLA RETE.
-  Qui dentro c'e' TUTTO quello che parla con il server e NIENTE che parla con lo schermo:
-  nessuna finestra, nessun bottone, nessun disegno (guarda l'elenco "uses": non c'e' Forms).
-  Come parla la rete: una riga che va, una riga che torna. Le righe sono fatte di campi
-  separati da punto e virgola. Il protocollo (porta 5050) e' quello di sempre:
-
-    il client scrive            il server risponde
-    ------------------------    ----------------------------------------------------------
-    STATO;nome                  STATO;GIOCO;tent;posto;finiti;migliore;peggiore
-                                STATO;ATTESA;tent;posto;finiti;migliore;peggiore
-    GUESS;nome;1234             WAIT                                   (il Prof non ha detto Via)
-                                RESULT;neri;bianchi;tent;posto;finiti;migliore;peggiore
-                                WIN;nome;tent;secondi;posto;finiti;migliore;peggiore
-                                ERR;motivo
-
-  NOVITA' della v4.1 (la GARA a piu' codici). Se il Prof ha lanciato una gara, dopo la riga di
-  sempre il server aggiunge, SOTTO, altre righe (la risposta diventa di piu' righe):
-
-    ROUND;k;N;secondi           siamo al codice k di N; mancano "secondi" alla fine del round
-                                (0 = round finito, si aspetta il prossimo codice)
-    CLASSIFICA;pos;totale;giocatori;nome1;punti1
-                                il TUO posto, i TUOI punti, quanti giocatori ci sono,
-                                il nome del primo e i suoi punti
-    FINEGARA;pos;totale;giocatori
-                                la gara e' finita: ecco il tuo posto finale
-
-  Le righe nuove arrivano SEMPRE dopo la riga di sempre. Un client vecchio (v4.0.1) legge solo la
-  PRIMA riga e poi chiude: le righe nuove non le vede e gioca come prima.
-
-  Come avvisa la finestra, senza conoscerla: con gli EVENTI, proprio come l'evento OnClick di un
-  bottone in Lazarus. Qui sotto trovi i "tipi evento" (procedure ... of object). La finestra
-  (UnitInterfaccia) scrive le sue procedure e le attacca agli eventi: Rete.OnRisultato := @MioRisultato.
-  Cosi' UnitInterfaccia conosce UnitRete, ma UnitRete NON conosce UnitInterfaccia:
-  niente giri in tondo (riferimenti circolari). }
 
 {$mode objfpc}{$H+}
 
