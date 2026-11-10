@@ -1,21 +1,4 @@
 unit UnitInterfaccia;
-{ MASTERMIND BELLO v4.1 - CLIENT per i ragazzi: la parte della FINESTRA (UnitInterfaccia + il suo .lfm).
-  Qui ci sono finestra, disegni, bottoni, tavola di legno e pioli: NIENTE rete scritta qui.
-  Tutta la rete sta in UnitRete.pas (un oggetto TClienteRete): questa unit lo usa e ascolta i suoi
-  EVENTI (OnStato, OnRisultato, OnVittoria...), come ascolti OnClick di un bottone.
-  UnitRete non sa niente di questa unit: cosi' non ci sono giri in tondo.
-  Due modi per giocare:
-    - "Connetti": ti colleghi al PC del prof (porta 5050) e giochi la partita di classe;
-    - "Gioca da solo": il programma pensa lui il codice, non serve la rete.
-  I colori sono 6 e possono RIPETERSI (rosso, rosso, blu, giallo e' un codice valido).
-  Piolini di risposta: NERO = colore giusto al posto giusto, BIANCO = colore giusto al posto sbagliato.
-  Come si gioca: clicca i colori nella fascia sotto la tavola (si riempiono i 4 buchi della riga
-  illuminata), poi premi "Prova". Con "Togli l'ultimo" correggi.
-  Versione v4.0: stessa grafica della v3.0, ma il programma e' diviso in due unit (interfaccia e rete).
-  Versione v4.1: la GARA. Se il Prof lancia una gara a piu' codici, in alto compare un riquadro con
-  "La tua posizione", i tuoi punti, il codice a cui sei (2 di 5) e il tempo che manca. La rete
-  avvisa la finestra con tre eventi nuovi (OnRound, OnClassifica, OnFineGara). A fine gara
-  compare un messaggio con il tuo posto. Il resto (tavola di legno, colori, tasti) e' come prima. }
 
 {$mode objfpc}{$H+}
 
